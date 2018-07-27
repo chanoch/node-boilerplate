@@ -1,0 +1,101 @@
+{
+  "name": "@chanoch/boilerplate",
+  "version": "1.0.0",
+  "description": "Node boilerplate with es7 support using webpack 4 and babel",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.js --exec \"node -r dotenv/config -r babel-register\"",
+    "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist",
+    "lint": "esw -w src test",
+    "clean": "rimraf dist/",
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chanoch/node-boilerplate.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "webpack",
+    "node",
+    "es7",
+    "babel"
+  ],
+  "author": "chanoch <chanoch@clearbrook.it>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chanoch/node-boilerplate/issues"
+  },
+  "homepage": "https://github.com/chanoch/node-boilerplate#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^5.2.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jest": "^21.18.0",
+    "eslint-watch": "^4.0.2",
+    "jest": "^23.4.1",
+    "nodemon": "^1.18.3",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "mongodb": "^3.1.1",
+    "node-cron": "^1.2.1",
+    "pm2": "^3.0.3",
+    "superagent": "^3.8.3",
+    "uuid": "^3.3.2",
+    "winston": "^3.0.0",
+    "winston-papertrail": "^1.0.5"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-object-rest-spread",
+      "transform-class-properties"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "plugins": [
+      "import",
+      "jest"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true,
+      "jest": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ],
+    "rules": {
+      "jest/no-focused-tests": 2,
+      "jest/no-identical-title": 2
+    }
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "directories": {
+    "test": "test"
+  }
+}

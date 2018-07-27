@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/index.js"],"names":["console","log","process","env","NODE_ENV"],"mappings":";;AACA;AACAA,QAAQC,GAAR,CAAYC,QAAQC,GAAR,CAAYC,QAAxB","file":"index.js","sourcesContent":["\n// eslint-ignore-next-line\nconsole.log(process.env.NODE_ENV)\n"]}
